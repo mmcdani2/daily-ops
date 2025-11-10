@@ -1,0 +1,223 @@
+/* ==========================
+   STRUCTURAL LAYOUT — 2001 FLUID PORTAL STYLE
+   ========================== */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Verdana", "Tahoma", "MS Sans Serif", sans-serif;
+  background-color: #c0d4f7;
+  color: #000;
+  box-sizing: border-box;
+  overflow: hidden; /* prevent double scrollbars */
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* ==== PAGE SHELL ==== */
+.page-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+/* ==== HEADER BAR ==== */
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  border-bottom: 3px double #7ea4d6;
+  background: #f0f4ff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  height: 40px;
+}
+
+.masthead-logo {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.masthead-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.toolbar-btn {
+  font-size: 11px;
+  padding: 3px 8px;
+  border: 1px solid #003c7c;
+  background: #f0f4ff;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+.toolbar-btn:hover {
+  background: #dbe8ff;
+}
+
+/* ==== MAIN CONTENT ROW ==== */
+.content-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  border-top: 1px solid #7ea4d6;
+  border-bottom: 1px solid #7ea4d6;
+}
+
+/* ==== SIDE RAILS ==== */
+.left-rail,
+.right-rail {
+  background: #e8f0ff;
+  padding: 12px 10px;
+  overflow-y: auto;
+  position: sticky;
+  top: 40px; /* header offset */
+  height: calc(100vh - 70px); /* header + footer space */
+}
+
+.left-rail {
+  border-right: 1px solid #7ea4d6;
+}
+
+.right-rail {
+  border-left: 1px solid #7ea4d6;
+}
+
+/* ==== MAIN CONTENT AREA ==== */
+.main-column {
+  background: #ffffff;
+  overflow-y: auto;
+  padding: 20px;
+  height: calc(100vh - 70px);
+}
+
+/* ==========================
+   PLANNER TABLE STRUCTURE
+   ========================== */
+
+.planner-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.planner-table th,
+.planner-table td {
+  border: 1px solid #b3c6e0;
+  padding: 6px 10px;
+  text-align: left;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.planner-table th:nth-child(1),
+.planner-table td:nth-child(1) {
+  width: 45%;
+}
+.planner-table th:nth-child(2),
+.planner-table td:nth-child(2) {
+  width: 20%;
+}
+.planner-table th:nth-child(3),
+.planner-table td:nth-child(3) {
+  width: 15%;
+}
+.planner-table th:nth-child(4),
+.planner-table td:nth-child(4) {
+  width: 20%;
+}
+
+/* Header row styling */
+.planner-table th {
+  background: linear-gradient(#e7efff, #cfdfff);
+  color: #003366;
+  font-weight: bold;
+  border-bottom: 2px solid #7ea4d6;
+}
+
+/* Zebra rows */
+.planner-table tr:nth-child(even) {
+  background-color: #f6f8ff;
+}
+.planner-table tr:hover {
+  background-color: #e8f0ff;
+}
+
+/* Action buttons */
+.action-cell {
+  padding: 4px;
+}
+
+.action-row {
+  display: flex;
+  justify-content: stretch;
+  gap: 6px;
+  width: 100%;
+}
+
+.btn {
+  flex: 1;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 26px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  box-sizing: border-box;
+  text-align: center;
+  width: 100%;
+}
+
+/* ==== FOOTER ==== */
+.site-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 1000;
+  padding: 6px 12px;
+  font-size: 11px;
+  text-align: center;
+  border-top: 3px double #7ea4d6;
+  background: #f0f4ff;
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.2);
+  height: 30px;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 1024px) {
+  .content-row {
+    grid-template-columns: 160px 1fr 160px;
+  }
+}
+
+@media (max-width: 800px) {
+  .content-row {
+    grid-template-columns: 1fr;
+  }
+  .left-rail,
+  .right-rail {
+    display: none;
+  }
+  .main-column {
+    padding: 60px 20px;
+  }
+}

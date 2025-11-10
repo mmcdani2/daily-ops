@@ -5,7 +5,6 @@ import { useSettings } from "../hooks/useSettings"
 import EditTaskModal from "../components/EditTaskModal"
 import ConfirmModal from "../components/ConfirmModal"
 import SettingsModal from "../components/SettingsModal"
-import { Settings as SettingsIcon } from "lucide-react"
 import type { Task } from "../types/task"
 
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -26,76 +25,44 @@ export default function Planner() {
   const [settingsOpen, setSettingsOpen] = useState(false)
 
   useEffect(() => {
-    if (!settingsLoading) {
-      document.body.className = `theme-${settings.theme}`
-    }
+    if (!settingsLoading) document.body.className = `theme-${settings.theme}`
   }, [settings.theme, settingsLoading])
 
   if (loading || notesLoading || settingsLoading) return <p>Loading...</p>
 
-  const handleAdd = () => {
-    if (!text.trim()) return
-    addTask(text, day, category)
-    setText("")
-  }
-
-  const handleQuickAddToday = () => {
-    if (!text.trim()) return
-    const today = days[new Date().getDay()]
-    addTask(text, today, category)
-    setText("")
-  }
-
-  const handleSaveEdit = (id: string, newText: string) => {
-    editTask(id, newText)
-    setEditingTask(null)
-  }
-
   return (
-    <div className="container">
-      {/* Header */}
-      <div className="planner-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <h1>DailyOps</h1>
-        <button onClick={() => setSettingsOpen(true)} title="Settings" className="settings-btn">
-          <SettingsIcon size={22} />
-        </button>
-      </div>
-
-      {/* Controls */}
-      <div className="planner-controls" style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "16px" }}>
+    <div className="planner">
+      {/* === CONTROLS === */}
+      <section className="planner-controls">
         <input
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Task"
-          style={{ flex: "1 1 200px", padding: 6 }}
         />
-        <select value={day} onChange={(e) => setDay(e.target.value)} style={{ padding: 6 }}>
+        <select value={day} onChange={(e) => setDay(e.target.value)}>
           {days.map((d) => (
             <option key={d}>{d}</option>
           ))}
         </select>
-        <select
-          value={category}
-          onChange={(e) => setCategory(e.target.value as Task["category"])}
-          style={{ padding: 6 }}
-        >
+        <select value={category} onChange={(e) => setCategory(e.target.value as Task["category"])}>
           {categories.map((c) => (
             <option key={c}>{c}</option>
           ))}
         </select>
-        <button onClick={handleAdd}>Add</button>
-      </div>
+        <button onClick={() => { if (text.trim()) { addTask(text, day, category); setText(""); } }}>
+          Add
+        </button>
+        <button onClick={() => { if (text.trim()) { addTask(text, days[new Date().getDay()], category); setText(""); } }}>
+          Quick Add to Today
+        </button>
+      </section>
 
-      <div style={{ marginBottom: 12 }}>
-        <button onClick={handleQuickAddToday}>Quick Add to Today</button>
-      </div>
-
-      <div style={{ marginBottom: 16, display: "flex", alignItems: "center", gap: 8 }}>
+      {/* === FILTERS === */}
+      <section className="planner-filters">
         <label>Filter by Category:</label>
         <select
           value={filter}
           onChange={(e) => setFilter(e.target.value as "All" | Task["category"])}
-          style={{ padding: 6 }}
         >
           <option value="All">All</option>
           {categories.map((c) => (
@@ -104,105 +71,78 @@ export default function Planner() {
             </option>
           ))}
         </select>
-        <label style={{ display: "flex", alignItems: "center", gap: 4 }}>
+        <label>
           <input
             type="checkbox"
             checked={showTodayOnly}
             onChange={() => setShowTodayOnly(!showTodayOnly)}
-          />
+          />{" "}
           Show Today Only
         </label>
-      </div>
+      </section>
 
-      {/* Task Lists */}
-      {days
-        .filter((d) => !showTodayOnly || d === days[new Date().getDay()])
-        .map((d) => (
-          <div key={d} className="planner-section" style={{ marginBottom: 20 }}>
-            <h3>{d}</h3>
-            <ul className="planner-list" style={{ listStyle: "none", paddingLeft: 0, margin: 0 }}>
-              {tasks
-                .filter((t) => t.day === d && (filter === "All" || t.category === filter))
-                .map((t) => (
-                  <li
-                    key={t.id}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      marginBottom: "6px",
-                      padding: "2px 0",
-                    }}
-                  >
-                    <div style={{ display: "flex", alignItems: "center", gap: "8px", flex: 1 }}>
-                      <input
-                        type="checkbox"
-                        checked={t.done}
-                        onChange={() => setTaskToClear(t)}
-                      />
-                      <span style={{ textDecoration: t.done ? "line-through" : "none" }}>
-                        {t.text}
-                      </span>
-                      {t.category && (
-                        <span style={{ fontSize: "12px", color: "#555" }}>
-                          [{t.category}]
-                        </span>
-                      )}
-                    </div>
-                    <button
-                      onClick={() => setEditingTask(t)}
-                      className="edit-btn"
-                      style={{ marginLeft: 10 }}
-                    >
-                      Edit
-                    </button>
-                  </li>
-                ))}
-            </ul>
-          </div>
-        ))}
+      {/* === TASKS === */}
+      <section className="planner-content">
+        {days
+          .filter((d) => !showTodayOnly || d === days[new Date().getDay()])
+          .map((d) => (
+            <div key={d} className="planner-section">
+              <h3>{d}</h3>
+              <table className="planner-table">
+                <thead>
+                  <tr>
+                    <th>Task</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tasks
+                    .filter((t) => t.day === d && (filter === "All" || t.category === filter))
+                    .map((t) => (
+                      <tr key={t.id}>
+                        <td style={{ textDecoration: t.done ? "line-through" : "none" }}>
+                          {t.text}
+                        </td>
+                        <td>{t.category}</td>
+                        <td>{t.done ? "✅ Done" : "⏳ Pending"}</td>
+                        <td className="action-cell">
+                          <button onClick={() => setTaskToClear(t)} className="btn-complete">
+                            Complete
+                          </button>
+                          <button onClick={() => setEditingTask(t)} className="btn-edit">
+                            Edit
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+          ))}
+      </section>
 
-      {/* Notes */}
-      <div className="planner-notes" style={{ marginTop: 40 }}>
+      {/* === NOTES === */}
+      <section className="planner-notes">
         <h3>Notes</h3>
         <textarea
           value={notes}
           onChange={(e) => saveNotes(e.target.value)}
           placeholder="General notes for the week..."
-          style={{
-            width: "100%",
-            minHeight: 150,
-            padding: 8,
-            fontFamily: "inherit",
-            fontSize: 14,
-          }}
         />
-      </div>
+      </section>
 
-      {/* Modals */}
-      <EditTaskModal
-        task={editingTask}
-        onSave={handleSaveEdit}
-        onClose={() => setEditingTask(null)}
-      />
-
+      {/* === MODALS === */}
+      <EditTaskModal task={editingTask} onSave={(id, newText) => { editTask(id, newText); setEditingTask(null); }} onClose={() => setEditingTask(null)} />
       {taskToClear && (
         <ConfirmModal
           message={`Mark "${taskToClear.text}" as complete and remove it?`}
-          onConfirm={() => {
-            toggleTask(taskToClear.id)
-            setTaskToClear(null)
-          }}
+          onConfirm={() => { toggleTask(taskToClear.id); setTaskToClear(null); }}
           onCancel={() => setTaskToClear(null)}
         />
       )}
-
-      <SettingsModal
-        open={settingsOpen}
-        currentTheme={settings.theme}
-        onChangeTheme={setTheme}
-        onClose={() => setSettingsOpen(false)}
-      />
+      <SettingsModal open={settingsOpen} currentTheme={settings.theme} onChangeTheme={setTheme} onClose={() => setSettingsOpen(false)} />
     </div>
   )
 }
