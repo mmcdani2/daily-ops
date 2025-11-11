@@ -1,0 +1,272 @@
+/* ==========================
+   MS95 THEME — WINDOWS 95 CLONE
+   ========================== */
+
+.theme-ms95 {
+  background: #008080;
+  color: #000000;
+  font-family: "Microsoft Sans Serif", Tahoma, Verdana, sans-serif;
+}
+
+/* ==== HEADER ==== */
+.theme-ms95 .masthead {
+  background: #c0c0c0;
+  border-bottom: 2px solid #808080;
+  border-top: 2px solid #ffffff;
+  color: #000000;
+  box-shadow:
+    inset 1px 1px 0 #ffffff,
+    inset -1px -1px 0 #404040;
+}
+
+.theme-ms95 .masthead-logo {
+  font-weight: bold;
+  font-size: 16px;
+  color: #000000;
+}
+
+.theme-ms95 .toolbar-btn {
+  background: #c0c0c0;
+  border: 2px outset #ffffff;
+  color: #000000;
+  font-size: 12px;
+  padding: 2px 8px;
+  box-shadow: inset 1px 1px #ffffff, inset -1px -1px #808080;
+}
+
+.theme-ms95 .toolbar-btn:active {
+  border: 2px inset #ffffff;
+  box-shadow: inset -1px -1px #ffffff, inset 1px 1px #808080;
+}
+
+/* ==== SIDE RAILS ==== */
+.theme-ms95 .left-rail,
+.theme-ms95 .right-rail {
+  background: #008080;
+  border-color: #808080;
+  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #808080;
+  color: #000000;
+}
+
+/* ==== MAIN CONTENT ==== */
+.theme-ms95 .main-column {
+  background: #ffffff;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+
+/* ==== CONTROLS / FILTERS ==== */
+.theme-ms95 .planner-controls,
+.theme-ms95 .planner-filters {
+  background: #c0c0c0;
+  border: 2px solid #808080;
+  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #404040;
+  padding: 6px;
+  color: #000000;
+}
+
+.theme-ms95 .planner-controls button,
+.theme-ms95 .planner-filters select,
+.theme-ms95 .planner-controls input,
+.theme-ms95 .planner-controls select {
+  background: #ffffff;
+  border: 2px solid #808080;
+  color: #000000;
+  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #808080;
+  font-size: 12px;
+  padding: 3px 6px;
+}
+
+/* ==== TABLE ==== */
+.theme-ms95 .planner-table th {
+  background: #c0c0c0;
+  border: 1px solid #808080;
+  color: #000000;
+  font-weight: bold;
+  text-align: left;
+  box-shadow: inset 1px 1px #ffffff, inset -1px -1px #808080;
+}
+
+.theme-ms95 .planner-table tr:nth-child(even) {
+  background-color: #e4e4e4;
+}
+
+.theme-ms95 .planner-table tr:hover {
+  background-color: #d0d0d0;
+}
+
+/* ==== BUTTONS ==== */
+.theme-ms95 .btn-complete,
+.theme-ms95 .btn-edit {
+  background: #c0c0c0;
+  border: 2px outset #ffffff;
+  color: #000000;
+  font-weight: bold;
+  padding: 2px 10px;
+  box-shadow: inset 1px 1px #ffffff, inset -1px -1px #808080;
+}
+
+.theme-ms95 .btn-complete:active,
+.theme-ms95 .btn-edit:active {
+  border: 2px inset #ffffff;
+  box-shadow: inset -1px -1px #ffffff, inset 1px 1px #808080;
+}
+
+/* MS95 Scrollbar */
+.theme-ms95 ::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+.theme-ms95 ::-webkit-scrollbar-track {
+  background-color: #c0c0c0;
+  border: 2px solid #ffffff;
+  box-shadow: inset 1px 1px #808080, inset -1px -1px #dfdfdf;
+}
+
+.theme-ms95 ::-webkit-scrollbar-thumb {
+  background-color: #b0b0b0;
+  border: 2px solid #808080;
+  box-shadow: inset 1px 1px #dfdfdf, inset -1px -1px #404040;
+}
+
+.theme-ms95 ::-webkit-scrollbar-thumb:hover {
+  background-color: #a0a0a0;
+}
+
+/* ==== FOOTER ==== */
+.theme-ms95 .site-footer {
+  background: #c0c0c0;
+  border-top: 2px solid #808080;
+  border-bottom: 2px solid #ffffff;
+  color: #000000;
+  text-align: center;
+  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #808080;
+}
+
+/* ==== FORM ELEMENTS ==== */
+.theme-ms95 input,
+.theme-ms95 select,
+.theme-ms95 textarea {
+  background: #ffffff;
+  border: 2px solid #808080;
+  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #808080;
+  color: #000000;
+  font-size: 12px;
+  padding: 3px 5px;
+}
+
+.theme-ms95 input:focus,
+.theme-ms95 select:focus,
+.theme-ms95 textarea:focus {
+  outline: none;
+  border: 2px solid #0000ff;
+}
+
+/* ==== CHECKBOX ==== */
+.theme-ms95 input[type="checkbox"] {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #c0c0c0;
+  border: 2px outset #ffffff;
+  box-shadow: inset 1px 1px #ffffff, inset -1px -1px #808080;
+  cursor: pointer;
+}
+
+.theme-ms95 input[type="checkbox"]:checked {
+  background: #000080;
+  border: 2px inset #ffffff;
+}
+
+/* ==========================
+   SETTINGS MODAL — MS95
+   ========================== */
+.theme-ms95 .settings-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.theme-ms95 .settings-modal {
+  background: #c0c0c0;
+  border: 2px solid #808080;
+  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #404040;
+  color: #000000;
+  border-radius: 0;
+  font-family: "Microsoft Sans Serif", Tahoma, Verdana, sans-serif;
+}
+
+.theme-ms95 .settings-modal h3 {
+  background: #000080;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 4px 8px;
+  margin: -10px -10px 10px -10px;
+}
+
+.theme-ms95 .settings-modal select {
+  background: #ffffff;
+  border: 2px solid #808080;
+  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #808080;
+  padding: 3px 5px;
+}
+
+.theme-ms95 .settings-modal button {
+  background: #c0c0c0;
+  border: 2px outset #ffffff;
+  color: #000000;
+  font-weight: bold;
+  padding: 3px 10px;
+  box-shadow: inset 1px 1px #ffffff, inset -1px -1px #808080;
+}
+
+.theme-ms95 .settings-modal button:active {
+  border: 2px inset #ffffff;
+  box-shadow: inset -1px -1px #ffffff, inset 1px 1px #808080;
+}
+
+/* ==========================
+   EDIT & CONFIRM MODALS — MS95
+   ========================== */
+
+.theme-ms95 .edit-modal,
+.theme-ms95 .confirm-modal {
+  background: #c0c0c0;
+  border: 2px solid #808080;
+  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #404040;
+  color: #000000;
+}
+
+.theme-ms95 .edit-modal h3,
+.theme-ms95 .confirm-modal h3 {
+  background: #000080;
+  color: #ffffff;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin: -10px -10px 10px -10px;
+}
+
+.theme-ms95 .edit-modal input {
+  background: #ffffff;
+  border: 2px solid #808080;
+  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #808080;
+  color: #000000;
+  padding: 5px;
+}
+
+.theme-ms95 .edit-modal button,
+.theme-ms95 .confirm-modal button {
+  background: #c0c0c0;
+  border: 2px outset #ffffff;
+  color: #000000;
+  font-weight: bold;
+  padding: 3px 10px;
+  box-shadow: inset 1px 1px #ffffff, inset -1px -1px #808080;
+}
+
+.theme-ms95 .edit-modal button:active,
+.theme-ms95 .confirm-modal button:active {
+  border: 2px inset #ffffff;
+  box-shadow: inset -1px -1px #ffffff, inset 1px 1px #808080;
+}

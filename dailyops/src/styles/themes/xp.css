@@ -1,0 +1,260 @@
+/* ==========================
+   WINDOWS XP THEME — LUNA CLONE
+   ========================== */
+
+.theme-xp {
+  background: linear-gradient(to bottom, #3a6ea5, #2a5190);
+  color: #000000;
+  font-family: "Tahoma", "Segoe UI", Verdana, sans-serif;
+}
+
+/* ==== HEADER ==== */
+.theme-xp .masthead {
+  background: linear-gradient(to bottom, #0a58c1 0%, #0a44a1 100%);
+  border-bottom: 2px solid #083b8c;
+  color: #ffffff;
+  font-weight: bold;
+  box-shadow: inset 0 1px 0 #8ec4ff, 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.theme-xp .masthead-logo {
+  font-size: 18px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.theme-xp .toolbar-btn {
+  background: linear-gradient(to bottom, #eaf2fd 0%, #b7d4f9 100%);
+  border: 1px solid #6392d1;
+  border-radius: 4px;
+  color: #003366;
+  font-size: 12px;
+  padding: 3px 8px;
+  box-shadow: inset 0 1px 0 #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.theme-xp .toolbar-btn:hover {
+  background: linear-gradient(to bottom, #ffffff 0%, #d4e6fb 100%);
+}
+
+/* ==== SIDE RAILS ==== */
+.theme-xp .left-rail,
+.theme-xp .right-rail {
+  background: linear-gradient(to bottom, #f3f6ff 0%, #dce6f8 100%);
+  border-color: #9db9e0;
+  box-shadow: inset 0 1px 0 #ffffff, inset -1px -1px 0 #b5c9e8;
+  color: #000000;
+  font-size: 13px;
+}
+
+/* ==== MAIN CONTENT ==== */
+.theme-xp .main-column {
+  background: #ffffff;
+  border-top: 1px solid #9db9e0;
+  border-left: 1px solid #9db9e0;
+  box-shadow: inset 0 1px 0 #ffffff, inset -1px -1px 0 #b5c9e8;
+}
+
+/* ==== CONTROLS / FILTERS ==== */
+.theme-xp .planner-controls,
+.theme-xp .planner-filters {
+  background: linear-gradient(to bottom, #f5f8ff, #e1ecfa);
+  border: 1px solid #9db9e0;
+  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-shadow: inset 0 1px 0 #ffffff, 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.theme-xp .planner-controls input,
+.theme-xp .planner-controls select,
+.theme-xp .planner-filters select {
+  background: #ffffff;
+  border: 1px solid #9db9e0;
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-size: 13px;
+  box-shadow: inset 0 1px 0 #ffffff;
+}
+
+.theme-xp .planner-controls button,
+.theme-xp .planner-filters button {
+  background: linear-gradient(to bottom, #eaf2fd, #b7d4f9);
+  border: 1px solid #6392d1;
+  border-radius: 5px;
+  color: #003366;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 #ffffff;
+}
+
+.theme-xp .planner-controls button:hover,
+.theme-xp .planner-filters button:hover {
+  background: linear-gradient(to bottom, #ffffff, #d4e6fb);
+}
+
+/* ==== TABLE ==== */
+.theme-xp .planner-table th {
+  background: linear-gradient(to bottom, #eaf2fd, #c8defa);
+  border: 1px solid #9db9e0;
+  color: #003366;
+  text-shadow: 0 1px 0 #ffffff;
+  padding: 6px;
+}
+
+.theme-xp .planner-table tr:nth-child(even) {
+  background-color: #f6f9ff;
+}
+
+.theme-xp .planner-table tr:hover {
+  background-color: #e7f0fe;
+}
+
+/* ==== BUTTONS ==== */
+.theme-xp .btn-complete {
+  background: linear-gradient(to bottom, #bdfd9f 0%, #81C046 100%);
+  border: 1px solid #3e9b2a;
+  border-radius: 4px;
+  color: #003300;
+  text-shadow: 0 1px 0 #eaffea;
+}
+
+.theme-xp .btn-edit {
+  background: linear-gradient(to bottom, #ffe98d 0%, #ffcb3e 100%);
+  border: 1px solid #d1a700;
+  border-radius: 4px;
+  color: #4a3a00;
+  text-shadow: 0 1px 0 #fff9e0;
+}
+
+.theme-xp .btn-complete:hover,
+.theme-xp .btn-edit:hover {
+  filter: brightness(1.1);
+}
+
+/* Windows XP Scrollbar */
+.theme-xp ::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+.theme-xp ::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border: 1px solid #a6a6a6;
+  box-shadow: inset 1px 1px #ffffff, inset -1px -1px #dcdcdc;
+}
+
+.theme-xp ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #b5d3f3 0%, #5a8ee0 100%);
+  border: 1px solid #3a6db4;
+  border-radius: 4px;
+  box-shadow: inset 1px 1px #ffffff66, inset -1px -1px #2b579a;
+}
+
+.theme-xp ::-webkit-scrollbar-corner {
+  background-color: #f1f1f1;
+}
+
+.theme-xp ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #a7c8f0 0%, #4b7cd0 100%);
+}
+
+
+/* ==== FOOTER ==== */
+.theme-xp .site-footer {
+  background: linear-gradient(to top, #e5ecf9, #cdddf7);
+  border-top: 1px solid #9db9e0;
+  box-shadow: inset 0 1px 0 #ffffff;
+  color: #003366;
+  text-shadow: 0 1px 0 #ffffff;
+  font-size: 12px;
+  padding: 6px;
+  text-align: center;
+}
+
+/* ==== FORM ELEMENTS ==== */
+.theme-xp input,
+.theme-xp select,
+.theme-xp textarea {
+  background: #ffffff;
+  border: 1px solid #9db9e0;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 0 #ffffff;
+  color: #000000;
+  font-size: 13px;
+  padding: 4px 6px;
+}
+
+.theme-xp input:focus,
+.theme-xp select:focus,
+.theme-xp textarea:focus {
+  outline: none;
+  border-color: #3a6ea5;
+  box-shadow: 0 0 4px rgba(58, 110, 165, 0.6);
+}
+
+/* ==== CHECKBOX ==== */
+.theme-xp input[type="checkbox"] {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(to bottom, #ffffff, #c8defa);
+  border: 1px solid #9db9e0;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+.theme-xp input[type="checkbox"]:checked::after {
+  content: "✔";
+  position: absolute;
+  left: 1px;
+  top: -1px;
+  font-size: 12px;
+  color: #0a44a1;
+}
+
+/* ==== MODALS ==== */
+.theme-xp .settings-modal,
+.theme-xp .edit-modal,
+.theme-xp .confirm-modal {
+  background: linear-gradient(to bottom, #f5f8ff, #e0ecfa);
+  border: 2px solid #9db9e0;
+  border-radius: 6px;
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 #ffffff;
+  color: #000000;
+}
+
+.theme-xp .settings-modal h3,
+.theme-xp .edit-modal h3,
+.theme-xp .confirm-modal h3 {
+  background: linear-gradient(to bottom, #2a6fe8, #0a44a1);
+  color: #ffffff;
+  padding: 6px 10px;
+  margin: -10px -10px 10px -10px;
+  border-radius: 4px 4px 0 0;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.theme-xp .settings-modal button,
+.theme-xp .edit-modal button,
+.theme-xp .confirm-modal button {
+  background: linear-gradient(to bottom, #eaf2fd, #b7d4f9);
+  border: 1px solid #6392d1;
+  border-radius: 4px;
+  color: #003366;
+  font-weight: bold;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+.theme-xp .settings-modal button:hover,
+.theme-xp .edit-modal button:hover,
+.theme-xp .confirm-modal button:hover {
+  background: linear-gradient(to bottom, #ffffff, #d4e6fb);
+}

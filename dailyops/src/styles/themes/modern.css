@@ -1,0 +1,285 @@
+/* ==========================
+   MODERN THEME — Liquid Glass UI
+   ========================== */
+
+.theme-modern {
+  background: radial-gradient(circle at 40% 20%, #1b1b1f 0%, #0e0e11 100%);
+  color: #f4f4f6;
+  font-family: "Inter", "Segoe UI", "Helvetica Neue", sans-serif;
+
+  --accent-blue: #3a86ff;
+  --accent-orange: #ff7b00;
+  --accent-pink: #ff4f81;
+  --accent-green: #53ffb0;
+}
+
+/* ==== CONTAINERS / PANELS ==== */
+.theme-modern .container,
+.theme-modern .main-column,
+.theme-modern .left-rail,
+.theme-modern .right-rail {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 16px;
+  box-shadow:
+    0 4px 25px rgba(0, 0, 0, 0.40),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Additional padding for rails */
+.theme-modern .left-rail,
+.theme-modern .right-rail {
+  padding: 1rem;
+}
+
+/* ==== HEADER ==== */
+.theme-modern .masthead {
+  background: rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.40);
+  padding: 0.6rem 1.2rem;
+}
+
+.theme-modern .masthead-logo {
+  font-weight: 600;
+  font-size: 20px;
+  color: #fff;
+}
+
+.theme-modern .toolbar-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: #fff;
+  padding: 0.4rem 0.9rem;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+.theme-modern .toolbar-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* ==== FILTERS / CONTROLS ==== */
+.theme-modern .planner-controls,
+.theme-modern .planner-filters {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 14px;
+  padding: 0.8rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.30);
+}
+
+.theme-modern .planner-controls input,
+.theme-modern .planner-controls select,
+.theme-modern .planner-filters select {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #f9f9fb;
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+
+.theme-modern .planner-controls button {
+  background: rgba(255, 255, 255, 0.14);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  transition: all 0.25s ease;
+}
+.theme-modern .planner-controls button:hover {
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.20);
+}
+
+/* ==== SELECT DROPDOWNS ==== */
+.theme-modern select {
+  appearance: none;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  color: #ffffff;
+  padding: 0.6rem 2rem 0.6rem 0.8rem;
+  font-size: 14px;
+  font-weight: 500;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.30);
+  transition: all 0.25s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.theme-modern select:hover {
+  border-color: rgba(255, 255, 255, 0.30);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.22);
+}
+.theme-modern select:focus {
+  outline: none;
+  border-color: rgba(99, 178, 255, 0.88);
+  box-shadow: 0 0 14px rgba(99, 178, 255, 0.50);
+}
+.theme-modern option {
+  background: #1a1a1f;
+  color: #f1f1f1;
+  padding: 8px;
+}
+
+/* ==== TABLES ==== */
+.theme-modern .planner-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.theme-modern .planner-table th {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.6rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.10);
+}
+.theme-modern .planner-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.6rem;
+}
+.theme-modern .planner-table tr:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ==== BUTTONS ==== */
+.theme-modern .btn-complete {
+  background: linear-gradient(135deg, var(--accent-green), #36c690);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  transition: all 0.30s ease;
+}
+.theme-modern .btn-complete:hover {
+  box-shadow: 0 0 14px var(--accent-green);
+}
+
+.theme-modern .btn-edit {
+  background: linear-gradient(135deg, var(--accent-orange), #ff9a3c);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+}
+.theme-modern .btn-edit:hover {
+  box-shadow: 0 0 14px var(--accent-orange);
+}
+
+/* ==== FOOTER ==== */
+.theme-modern .site-footer {
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  color: #ccc;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* ==== MODALS ==== */
+.theme-modern .settings-overlay,
+.theme-modern .edit-overlay,
+.theme-modern .confirm-overlay {
+  background: rgba(0, 0, 0, 0.30); /* overlay dim but no blur */
+}
+
+.theme-modern .settings-modal,
+.theme-modern .edit-modal,
+.theme-modern .confirm-modal {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 1.5rem;
+  color: #fff;
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  animation: modalFade 0.30s ease;
+}
+
+.theme-modern .settings-modal h3,
+.theme-modern .edit-modal h3 {
+  font-weight: 600;
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 8px;
+}
+
+.theme-modern .settings-modal select,
+.theme-modern .edit-modal input,
+.theme-modern .confirm-modal button {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  color: #f9f9fb;
+  padding: 0.6rem 1rem;
+  font-size: 14px;
+}
+
+.theme-modern .settings-modal button,
+.theme-modern .edit-modal button {
+  background: linear-gradient(135deg, var(--accent-blue), #5baaff);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.8rem 1.4rem;
+  transition: all 0.30s ease;
+}
+.theme-modern .settings-modal button:hover,
+.theme-modern .edit-modal button:hover {
+  box-shadow: 0 0 15px var(--accent-blue);
+}
+
+.theme-modern .confirm-modal button:first-of-type {
+  background: linear-gradient(135deg, var(--accent-green), #36c690);
+}
+.theme-modern .confirm-modal button:last-of-type {
+  background: linear-gradient(135deg, var(--accent-pink), #ff7fae);
+}
+
+@keyframes modalFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* === Flatten Modern UI panels === */
+.theme-modern .container,
+.theme-modern .main-column,
+.theme-modern .left-rail,
+.theme-modern .right-rail {
+  border-radius: 0;
+}

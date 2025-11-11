@@ -1,0 +1,265 @@
+/* ==========================
+   SYSTEM 7 THEME — CLASSIC MACINTOSH
+   ========================== */
+
+.theme-system7 {
+  color: #000000;
+  font-family: "Chicago", "Geneva", "Helvetica", sans-serif;
+  background-color: #bfbfbf;
+  background-image:
+    repeating-linear-gradient(45deg, #000 0 1px, #fff 1px 2px);
+  background-size: 2px 2px;
+}
+
+/* ==== HEADER ==== */
+.theme-system7 .masthead {
+  background: #e0e0e0;
+  border-bottom: 1px solid #000000;
+  border-top: 1px solid #ffffff;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  padding: 4px 8px;
+  box-shadow: inset -1px -1px 0 #000000, inset 1px 1px 0 #ffffff;
+}
+
+.theme-system7 .masthead-logo {
+  font-size: 14px;
+}
+
+.theme-system7 .toolbar-btn {
+  background: #ffffff;
+  border: 1px solid #000000;
+  color: #000000;
+  font-size: 12px;
+  padding: 2px 8px;
+  box-shadow: 1px 1px 0 #000000;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.theme-system7 .toolbar-btn:active {
+  box-shadow: inset 1px 1px 0 #000000;
+}
+
+/* ==== SIDE RAILS ==== */
+.theme-system7 .left-rail,
+.theme-system7 .right-rail {
+  border: 1px solid #000;
+  background-color: #d8d8d8;
+  background-image: repeating-linear-gradient(45deg, #000 0 1px, #fff 1px 2px);
+  background-size: 2px 2px;
+  image-rendering: pixelated;
+  color: #000;
+  font-size: 13px;
+  font-family: "Chicago", "Geneva", sans-serif;
+  padding: 10px;
+  box-shadow: inset 1px 1px 0 #fff;
+}
+
+/* Simple white highlight behind text */
+.theme-system7 .left-rail *,
+.theme-system7 .right-rail * {
+  background-color: #fff;
+}
+
+
+/* ==== MAIN CONTENT ==== */
+.theme-system7 .main-column {
+  background: #ffffff;
+  border: 1px solid #000000;
+  color: #000000;
+}
+
+/* ==== CONTROLS / FILTERS ==== */
+.theme-system7 .planner-controls,
+.theme-system7 .planner-filters {
+  background: #e8e8e8;
+  border: 1px solid #000000;
+  padding: 6px;
+  margin-bottom: 10px;
+  box-shadow: 1px 1px 0 #000000, inset 1px 1px 0 #ffffff;
+}
+
+.theme-system7 .planner-controls input,
+.theme-system7 .planner-controls select,
+.theme-system7 .planner-filters select {
+  background: #ffffff;
+  border: 1px solid #000000;
+  color: #000000;
+  font-size: 12px;
+  padding: 3px 4px;
+  box-shadow: inset 1px 1px 0 #ffffff;
+}
+
+.theme-system7 .planner-controls button,
+.theme-system7 .planner-filters button {
+  background: #ffffff;
+  border: 1px solid #000000;
+  color: #000000;
+  font-weight: bold;
+  padding: 3px 8px;
+  box-shadow: 1px 1px 0 #000000;
+}
+
+.theme-system7 .planner-controls button:active,
+.theme-system7 .planner-filters button:active {
+  box-shadow: inset 1px 1px 0 #000000;
+}
+
+/* ==== TABLE ==== */
+.theme-system7 .planner-table th {
+  background: #d8d8d8;
+  border: 1px solid #000000;
+  color: #000000;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.theme-system7 .planner-table td {
+  border: 1px solid #000000;
+  color: #000000;
+  background: #ffffff;
+}
+
+.theme-system7 .planner-table tr:nth-child(even) {
+  background-color: #f3f3f3;
+}
+
+.theme-system7 .planner-table tr:hover {
+  background-color: #e0e0e0;
+}
+
+/* ==== BUTTONS ==== */
+.theme-system7 .btn-complete,
+.theme-system7 .btn-edit {
+  background: #ffffff;
+  border: 1px solid #000000;
+  color: #000000;
+  font-weight: bold;
+  padding: 2px 6px;
+  box-shadow: 1px 1px 0 #000000;
+}
+
+.theme-system7 .btn-complete:active,
+.theme-system7 .btn-edit:active {
+  box-shadow: inset 1px 1px 0 #000000;
+}
+
+.theme-system7 ::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+.theme-system7 ::-webkit-scrollbar-track {
+  background-color: #e0e0e0;
+  border: 1px solid #000;
+  box-shadow: inset 1px 1px #fff, inset -1px -1px #808080;
+}
+
+.theme-system7 ::-webkit-scrollbar-thumb {
+  background-color: #000;
+  border: 2px solid #e0e0e0;
+  box-shadow: inset 1px 1px #808080, inset -1px -1px #ffffff;
+}
+
+.theme-system7 ::-webkit-scrollbar-thumb:hover {
+  background-color: #333;
+}
+
+.theme-system7 ::-webkit-scrollbar-corner {
+  background-color: #e0e0e0;
+  border: 1px solid #000;
+}
+
+
+/* ==== FOOTER ==== */
+.theme-system7 .site-footer {
+  background: #e0e0e0;
+  border-top: 1px solid #000000;
+  box-shadow: inset 1px 1px 0 #ffffff;
+  text-align: center;
+  font-size: 11px;
+  padding: 6px;
+}
+
+/* ==== FORM ELEMENTS ==== */
+.theme-system7 input,
+.theme-system7 select,
+.theme-system7 textarea {
+  background: #ffffff;
+  border: 1px solid #000000;
+  color: #000000;
+  font-size: 12px;
+  padding: 3px 4px;
+}
+
+.theme-system7 input:focus,
+.theme-system7 select:focus,
+.theme-system7 textarea:focus {
+  outline: none;
+  border: 1px dashed #000000;
+}
+
+/* ==== CHECKBOX ==== */
+.theme-system7 input[type="checkbox"] {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  cursor: pointer;
+  position: relative;
+}
+
+.theme-system7 input[type="checkbox"]:checked::after {
+  content: "✔";
+  position: absolute;
+  top: -3px;
+  left: 0;
+  font-size: 12px;
+  color: #000000;
+}
+
+/* ==== MODALS ==== */
+.theme-system7 .settings-modal,
+.theme-system7 .edit-modal,
+.theme-system7 .confirm-modal {
+  background: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0 #000000;
+  color: #000000;
+  padding: 10px;
+  font-size: 13px;
+}
+
+.theme-system7 .settings-modal h3,
+.theme-system7 .edit-modal h3,
+.theme-system7 .confirm-modal h3 {
+  background: #d8d8d8;
+  border-bottom: 1px solid #000000;
+  color: #000000;
+  font-weight: bold;
+  padding: 4px 6px;
+  text-transform: uppercase;
+  margin: -10px -10px 10px -10px;
+}
+
+.theme-system7 .settings-modal button,
+.theme-system7 .edit-modal button,
+.theme-system7 .confirm-modal button {
+  background: #ffffff;
+  border: 1px solid #000000;
+  color: #000000;
+  font-weight: bold;
+  padding: 3px 8px;
+  box-shadow: 1px 1px 0 #000000;
+}
+
+.theme-system7 .settings-modal button:active,
+.theme-system7 .edit-modal button:active,
+.theme-system7 .confirm-modal button:active {
+  box-shadow: inset 1px 1px 0 #000000;
+}

@@ -8,7 +8,7 @@
 */
 
 @import "./themes/default.css";   /* AOL 8.0 Clone — Default */
-@import "./themes/win95.css";     /* Windows 95 Retro */
+@import "./themes/ms95.css";     /* Windows 95 Retro */
 @import "./themes/xp.css";        /* Windows XP Luna */
 @import "./themes/system7.css";   /* Classic Mac System 7 */
 @import "./themes/dos.css";       /* DOS / ANSI Terminal */

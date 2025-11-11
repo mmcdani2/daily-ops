@@ -1,17 +1,11 @@
-import { useState, useEffect } from "react"
-import Planner from "./pages/Planner"
-import { useSettings } from "./hooks/useSettings"
-import SettingsModal from "./components/SettingsModal"
+import { useState } from "react";
+import Planner from "./pages/Planner";
+import SettingsModal from "./components/SettingsModal";
+import { useSettingsContext } from "./context/SettingsContext";
 
 export default function App() {
-  const { settings, loading, setTheme } = useSettings()
-  const [settingsOpen, setSettingsOpen] = useState(false)
-
-  useEffect(() => {
-    if (!loading) document.body.className = `theme-${settings.theme}`
-  }, [settings.theme, loading])
-
-  if (loading) return <p>Loading...</p>
+  const { settings, setTheme } = useSettingsContext();
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   return (
     <div className="page-shell">
@@ -58,10 +52,9 @@ export default function App() {
       {/* ===== SETTINGS MODAL ===== */}
       <SettingsModal
         open={settingsOpen}
-        currentTheme={settings.theme}
-        onChangeTheme={setTheme}
         onClose={() => setSettingsOpen(false)}
       />
+
     </div>
-  )
+  );
 }

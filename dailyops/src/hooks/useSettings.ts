@@ -3,7 +3,7 @@ import { get, set } from "idb-keyval"
 
 const SETTINGS_KEY = "dailyops-settings"
 
-export type Theme = "default" | "modern" | "ms95" | "mxp" | "system7" | "dos"
+export type Theme = "default" | "modern" | "ms95" | "xp" | "system7" | "dos"
 
 interface Settings {
   theme: Theme
