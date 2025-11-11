@@ -55,6 +55,41 @@ body {
   line-height: 1.2;
 }
 
+/* ==== PLANNER CONTROLS & FILTERS LAYOUT ==== */
+.planner-controls,
+.planner-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.planner-controls input,
+.planner-controls select {
+  flex: 1 1 160px;
+  min-width: 140px;
+}
+
+.planner-controls button {
+  flex: 0 0 auto;
+}
+
+.planner-filters {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.planner-filters label {
+  margin-right: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.planner-filters select {
+  min-width: 120px;
+}
 
 /* ==== MAIN CONTENT ROW ==== */
 .content-row {
@@ -195,6 +230,124 @@ body {
   font-size: 11px;
   text-align: center;
 }
+
+/* ==========================
+   SETTINGS MODAL LAYOUT (STRUCTURE ONLY)
+   ========================== */
+
+.settings-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.settings-modal {
+  width: 320px;
+  max-width: 90%;
+  padding: 20px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.settings-modal h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.settings-modal select,
+.settings-modal button {
+  width: 100%;
+}
+
+/* ==========================
+   EDIT TASK MODAL — LAYOUT ONLY
+   ========================== */
+
+.edit-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.edit-modal {
+  width: 320px;
+  max-width: 90%;
+  padding: 20px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.edit-modal h3 {
+  margin: 0 0 8px 0;
+}
+
+.edit-modal input {
+  width: 100%;
+  padding: 6px;
+  font-size: 14px;
+}
+
+.edit-modal .btn-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.edit-modal button {
+  flex: 1;
+  min-width: 80px;
+}
+
+/* ==========================
+   CONFIRM MODAL — LAYOUT ONLY
+   ========================== */
+
+.confirm-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.confirm-modal {
+  width: 300px;
+  max-width: 90%;
+  padding: 20px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.confirm-modal p {
+  margin: 0;
+  text-align: left;
+}
+
+.confirm-modal .btn-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.confirm-modal button {
+  flex: 1;
+  min-width: 80px;
+}
+
+
 
 /* ==== RESPONSIVE ==== */
 @media (max-width: 1024px) {

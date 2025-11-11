@@ -57,6 +57,41 @@
   box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
+/* ==== CONTROLS / FILTERS CHROME ==== */
+.theme-default .planner-controls,
+.theme-default .planner-filters {
+  background: linear-gradient(to bottom, #f8fbff 0%, #dfe9ff 100%);
+  border: 1px solid #7ea4d6;
+  border-radius: 6px;
+  padding: 8px 10px;
+  box-shadow: inset 0 1px 0 #ffffff, 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.theme-default .planner-controls {
+  margin-bottom: 10px;
+}
+
+.theme-default .planner-controls button,
+.theme-default .planner-filters select,
+.theme-default .planner-controls input,
+.theme-default .planner-controls select {
+  border: 1px solid #9db9e0;
+  background: linear-gradient(to bottom, #fefefe 0%, #e5edfa 100%);
+  border-radius: 4px;
+  padding: 4px 8px;
+  box-shadow: inset 0 1px 0 #fff;
+}
+
+.theme-default .planner-controls button {
+  font-weight: bold;
+  color: #0b2245;
+  background: linear-gradient(to bottom, #b7f77c 0%, #5fd834 60%, #42b11e 100%);
+  text-shadow: 0 1px 0 #d6ffc0;
+  border: 2px outset #ffffff;
+  box-shadow: inset 0 1px 0 #d7ffbf, 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+
 /* ==== TABLE STYLING ==== */
 .theme-default .planner-table th {
   background: linear-gradient(#e7efff, #cfdfff);
@@ -150,3 +185,203 @@
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
+
+/* ==========================
+   SETTINGS MODAL — AOL 8.0 STYLE
+   ========================== */
+
+.theme-default .settings-overlay {
+  background: rgba(0, 0, 64, 0.35);
+  backdrop-filter: blur(2px);
+}
+
+.theme-default .settings-modal {
+  background: linear-gradient(to bottom right, #f8fbff 0%, #e0edff 60%, #d3e4fb 100%);
+  border: 2px outset #ffffff;
+  box-shadow:
+    inset 0 1px 0 #ffffff,
+    0 4px 12px rgba(0, 0, 0, 0.3);
+  color: #0b2245;
+  font-family: Tahoma, Verdana, sans-serif;
+  border-radius: 8px;
+}
+
+.theme-default .settings-modal h3 {
+  background: linear-gradient(to bottom, #9ec4ff 0%, #4b85f2 80%);
+  border: 1px solid #3762b6;
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 16px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.theme-default .settings-modal label {
+  color: #1a3f85;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.theme-default .settings-modal select {
+  background: #ffffff;
+  border: 1px solid #9db9e0;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 4px 6px;
+  color: #0b2245;
+  font-size: 13px;
+  transition: border-color 0.2s ease;
+}
+
+.theme-default .settings-modal select:focus {
+  border-color: #4078d0;
+  outline: none;
+  box-shadow: 0 0 4px rgba(64, 120, 208, 0.6);
+}
+
+/* Close Button */
+.theme-default .settings-modal button {
+  background: linear-gradient(to bottom, #b7f77c 0%, #5fd834 60%, #42b11e 100%);
+  border: 2px outset #ffffff;
+  border-radius: 6px;
+  color: #07330d;
+  font-weight: bold;
+  font-size: 14px;
+  text-shadow: 0 1px 0 #d6ffc0;
+  cursor: pointer;
+  padding: 5px 14px;
+  margin-top: 6px;
+}
+
+.theme-default .settings-modal button:hover {
+  background: linear-gradient(to bottom, #cbff96 0%, #70e341 60%, #4dbb22 100%);
+}
+
+.theme-default .settings-modal button:active {
+  background: linear-gradient(to top, #70e341 0%, #4dbb22 100%);
+  transform: translateY(1px);
+}
+
+/* ==========================
+   EDIT TASK MODAL — DEFAULT THEME
+   ========================== */
+
+.theme-default .edit-overlay {
+  background: rgba(0, 0, 64, 0.35);
+  backdrop-filter: blur(2px);
+}
+
+.theme-default .edit-modal {
+  background: linear-gradient(to bottom right, #f8fbff 0%, #e0edff 60%, #d3e4fb 100%);
+  border: 2px outset #ffffff;
+  box-shadow:
+    inset 0 1px 0 #ffffff,
+    0 4px 12px rgba(0, 0, 0, 0.3);
+  color: #0b2245;
+  font-family: Tahoma, Verdana, sans-serif;
+  border-radius: 8px;
+}
+
+.theme-default .edit-modal h3 {
+  background: linear-gradient(to bottom, #9ec4ff 0%, #4b85f2 80%);
+  border: 1px solid #3762b6;
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 16px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.theme-default .edit-modal input {
+  background: #ffffff;
+  border: 1px solid #9db9e0;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+  color: #0b2245;
+  font-size: 13px;
+  padding: 6px;
+}
+
+.theme-default .edit-modal input:focus {
+  outline: none;
+  border-color: #4078d0;
+  box-shadow: 0 0 6px rgba(64, 120, 208, 0.6);
+}
+
+/* Buttons */
+.theme-default .edit-modal button {
+  border: 2px outset #ffffff;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 14px;
+  text-shadow: 0 1px 0 #ffffffb0;
+  font-size: 14px;
+}
+
+.theme-default .edit-modal button:first-of-type {
+  background: linear-gradient(to bottom, #b7f77c 0%, #5fd834 60%, #42b11e 100%);
+  color: #07330d;
+}
+
+.theme-default .edit-modal button:last-of-type {
+  background: linear-gradient(to bottom, #fff9b5 0%, #ffdb4d 100%);
+  color: #3b3200;
+}
+
+.theme-default .edit-modal button:hover {
+  filter: brightness(1.1);
+}
+
+/* ==========================
+   CONFIRM MODAL — DEFAULT THEME
+   ========================== */
+
+.theme-default .confirm-overlay {
+  background: rgba(0, 0, 64, 0.35);
+  backdrop-filter: blur(2px);
+}
+
+.theme-default .confirm-modal {
+  background: linear-gradient(to bottom right, #f8fbff 0%, #e0edff 60%, #d3e4fb 100%);
+  border: 2px outset #ffffff;
+  box-shadow:
+    inset 0 1px 0 #ffffff,
+    0 4px 12px rgba(0, 0, 0, 0.3);
+  color: #0b2245;
+  font-family: Tahoma, Verdana, sans-serif;
+  border-radius: 8px;
+}
+
+.theme-default .confirm-modal p {
+  font-size: 14px;
+  color: #0b2245;
+  line-height: 1.4;
+}
+
+.theme-default .confirm-modal button {
+  border: 2px outset #ffffff;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 14px;
+  text-shadow: 0 1px 0 #ffffffb0;
+  font-size: 14px;
+}
+
+/* YES (Green) */
+.theme-default .confirm-modal button:first-of-type {
+  background: linear-gradient(to bottom, #b7f77c 0%, #5fd834 60%, #42b11e 100%);
+  color: #07330d;
+}
+
+/* NO (Gold) */
+.theme-default .confirm-modal button:last-of-type {
+  background: linear-gradient(to bottom, #fff9b5 0%, #ffdb4d 100%);
+  color: #3b3200;
+}
+
+.theme-default .confirm-modal button:hover {
+  filter: brightness(1.1);
+}
+

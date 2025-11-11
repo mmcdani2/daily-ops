@@ -1,19 +1,23 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useTasks } from "../hooks/useTasks"
 import { useNotes } from "../hooks/useNotes"
-import { useSettings } from "../hooks/useSettings"
 import EditTaskModal from "../components/EditTaskModal"
 import ConfirmModal from "../components/ConfirmModal"
-import SettingsModal from "../components/SettingsModal"
 import type { Task } from "../types/task"
+import type { Theme } from "../hooks/useSettings"
 
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 const categories: Task["category"][] = ["Ops", "Admin", "Field", "Finance"]
 
-export default function Planner() {
+export default function Planner({
+  settings: _settings,
+  setTheme: _setTheme,
+}: {
+  settings: any
+  setTheme: (theme: Theme) => void
+}) {
   const { tasks, loading, addTask, toggleTask, editTask } = useTasks()
   const { notes, loading: notesLoading, saveNotes } = useNotes()
-  const { settings, loading: settingsLoading, setTheme } = useSettings()
 
   const [text, setText] = useState("")
   const [day, setDay] = useState("Sunday")
@@ -22,17 +26,30 @@ export default function Planner() {
   const [showTodayOnly, setShowTodayOnly] = useState(false)
   const [editingTask, setEditingTask] = useState<Task | null>(null)
   const [taskToClear, setTaskToClear] = useState<Task | null>(null)
-  const [settingsOpen, setSettingsOpen] = useState(false)
 
-  useEffect(() => {
-    if (!settingsLoading) document.body.className = `theme-${settings.theme}`
-  }, [settings.theme, settingsLoading])
+  if (loading || notesLoading) return <p>Loading...</p>
 
-  if (loading || notesLoading || settingsLoading) return <p>Loading...</p>
+  const handleAdd = () => {
+    if (!text.trim()) return
+    addTask(text, day, category)
+    setText("")
+  }
+
+  const handleQuickAddToday = () => {
+    if (!text.trim()) return
+    const today = days[new Date().getDay()]
+    addTask(text, today, category)
+    setText("")
+  }
+
+  const handleSaveEdit = (id: string, newText: string) => {
+    editTask(id, newText)
+    setEditingTask(null)
+  }
 
   return (
-    <div className="planner">
-      {/* === CONTROLS === */}
+    <>
+      {/* ======= CONTROLS ======= */}
       <section className="planner-controls">
         <input
           value={text}
@@ -44,20 +61,19 @@ export default function Planner() {
             <option key={d}>{d}</option>
           ))}
         </select>
-        <select value={category} onChange={(e) => setCategory(e.target.value as Task["category"])}>
+        <select
+          value={category}
+          onChange={(e) => setCategory(e.target.value as Task["category"])}
+        >
           {categories.map((c) => (
             <option key={c}>{c}</option>
           ))}
         </select>
-        <button onClick={() => { if (text.trim()) { addTask(text, day, category); setText(""); } }}>
-          Add
-        </button>
-        <button onClick={() => { if (text.trim()) { addTask(text, days[new Date().getDay()], category); setText(""); } }}>
-          Quick Add to Today
-        </button>
+        <button onClick={handleAdd}>Add</button>
+        <button onClick={handleQuickAddToday}>Quick Add to Today</button>
       </section>
 
-      {/* === FILTERS === */}
+      {/* ======= FILTERS ======= */}
       <section className="planner-filters">
         <label>Filter by Category:</label>
         <select
@@ -81,7 +97,7 @@ export default function Planner() {
         </label>
       </section>
 
-      {/* === TASKS === */}
+      {/* ======= TASK TABLE ======= */}
       <section className="planner-content">
         {days
           .filter((d) => !showTodayOnly || d === days[new Date().getDay()])
@@ -106,14 +122,16 @@ export default function Planner() {
                           {t.text}
                         </td>
                         <td>{t.category}</td>
-                        <td>{t.done ? "✅ Done" : "⏳ Pending"}</td>
+                        <td>{t.done ? "Complete" : "Pending"}</td>
                         <td className="action-cell">
-                          <button onClick={() => setTaskToClear(t)} className="btn-complete">
-                            Complete
-                          </button>
-                          <button onClick={() => setEditingTask(t)} className="btn-edit">
-                            Edit
-                          </button>
+                          <div className="action-row">
+                            <button onClick={() => setTaskToClear(t)} className="btn btn-complete">
+                              Complete
+                            </button>
+                            <button onClick={() => setEditingTask(t)} className="btn btn-edit">
+                              Edit
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     ))}
@@ -123,7 +141,7 @@ export default function Planner() {
           ))}
       </section>
 
-      {/* === NOTES === */}
+      {/* ======= NOTES ======= */}
       <section className="planner-notes">
         <h3>Notes</h3>
         <textarea
@@ -133,16 +151,23 @@ export default function Planner() {
         />
       </section>
 
-      {/* === MODALS === */}
-      <EditTaskModal task={editingTask} onSave={(id, newText) => { editTask(id, newText); setEditingTask(null); }} onClose={() => setEditingTask(null)} />
+      {/* ======= MODALS ======= */}
+      <EditTaskModal
+        task={editingTask}
+        onSave={handleSaveEdit}
+        onClose={() => setEditingTask(null)}
+      />
+
       {taskToClear && (
         <ConfirmModal
           message={`Mark "${taskToClear.text}" as complete and remove it?`}
-          onConfirm={() => { toggleTask(taskToClear.id); setTaskToClear(null); }}
+          onConfirm={() => {
+            toggleTask(taskToClear.id)
+            setTaskToClear(null)
+          }}
           onCancel={() => setTaskToClear(null)}
         />
       )}
-      <SettingsModal open={settingsOpen} currentTheme={settings.theme} onChangeTheme={setTheme} onClose={() => setSettingsOpen(false)} />
-    </div>
+    </>
   )
 }

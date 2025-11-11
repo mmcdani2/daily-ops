@@ -1,6 +1,18 @@
+import { useState, useEffect } from "react"
 import Planner from "./pages/Planner"
+import { useSettings } from "./hooks/useSettings"
+import SettingsModal from "./components/SettingsModal"
 
 export default function App() {
+  const { settings, loading, setTheme } = useSettings()
+  const [settingsOpen, setSettingsOpen] = useState(false)
+
+  useEffect(() => {
+    if (!loading) document.body.className = `theme-${settings.theme}`
+  }, [settings.theme, loading])
+
+  if (loading) return <p>Loading...</p>
+
   return (
     <div className="page-shell">
       {/* ===== HEADER ===== */}
@@ -8,7 +20,12 @@ export default function App() {
         <div className="masthead-logo">DailyOps</div>
         <div className="masthead-toolbar">
           <button className="toolbar-btn">My Account</button>
-          <button className="toolbar-btn settings-btn">Settings</button>
+          <button
+            className="toolbar-btn settings-btn"
+            onClick={() => setSettingsOpen(true)}
+          >
+            Settings
+          </button>
         </div>
       </header>
 
@@ -24,7 +41,7 @@ export default function App() {
         </nav>
 
         <main className="main-column">
-          <Planner />
+          <Planner settings={settings} setTheme={setTheme} />
         </main>
 
         <aside className="right-rail">
@@ -37,6 +54,14 @@ export default function App() {
       <footer className="site-footer">
         © 2001 DailyOps Corp. All rights reserved.
       </footer>
+
+      {/* ===== SETTINGS MODAL ===== */}
+      <SettingsModal
+        open={settingsOpen}
+        currentTheme={settings.theme}
+        onChangeTheme={setTheme}
+        onClose={() => setSettingsOpen(false)}
+      />
     </div>
   )
 }
