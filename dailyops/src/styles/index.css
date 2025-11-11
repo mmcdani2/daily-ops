@@ -8,10 +8,8 @@ body {
   padding: 0;
   height: 100%;
   font-family: "Verdana", "Tahoma", "MS Sans Serif", sans-serif;
-  background-color: #c0d4f7;
-  color: #000;
   box-sizing: border-box;
-  overflow: hidden; /* prevent double scrollbars */
+  overflow: hidden; /* Prevent double scrollbars */
 }
 
 *, *::before, *::after {
@@ -35,9 +33,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 6px 12px;
-  border-bottom: 3px double #7ea4d6;
-  background: #f0f4ff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   height: 40px;
 }
 
@@ -56,52 +51,43 @@ body {
 .toolbar-btn {
   font-size: 11px;
   padding: 3px 8px;
-  border: 1px solid #003c7c;
-  background: #f0f4ff;
   cursor: pointer;
   line-height: 1.2;
 }
 
-.toolbar-btn:hover {
-  background: #dbe8ff;
-}
 
 /* ==== MAIN CONTENT ROW ==== */
 .content-row {
   display: grid;
-  grid-template-columns: 200px 1fr 200px;
+  grid-template-columns: 200px 1fr 200px; /* left rail, main, right rail */
   flex: 1;
   min-height: 0;
   overflow: hidden;
-  border-top: 1px solid #7ea4d6;
-  border-bottom: 1px solid #7ea4d6;
 }
+
 
 /* ==== SIDE RAILS ==== */
 .left-rail,
 .right-rail {
-  background: #e8f0ff;
   padding: 12px 10px;
   overflow-y: auto;
   position: sticky;
-  top: 40px; /* header offset */
-  height: calc(100vh - 70px); /* header + footer space */
+  top: 40px; /* offset for header */
+  height: calc(100vh - 70px); /* accounts for header + footer */
 }
 
-.left-rail {
-  border-right: 1px solid #7ea4d6;
-}
-
+.left-rail,
 .right-rail {
-  border-left: 1px solid #7ea4d6;
+  flex-shrink: 0;
 }
+
 
 /* ==== MAIN CONTENT AREA ==== */
 .main-column {
-  background: #ffffff;
   overflow-y: auto;
   padding: 20px;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 70px); /* matches side rails’ height logic */
+  flex: 1;
 }
 
 /* ==========================
@@ -111,14 +97,13 @@ body {
 .planner-table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;
+  table-layout: fixed; /* ensures even column distribution */
   margin-top: 10px;
   font-size: 13px;
 }
 
 .planner-table th,
 .planner-table td {
-  border: 1px solid #b3c6e0;
   padding: 6px 10px;
   text-align: left;
   vertical-align: middle;
@@ -127,40 +112,49 @@ body {
   text-overflow: ellipsis;
 }
 
+/* Column widths */
 .planner-table th:nth-child(1),
 .planner-table td:nth-child(1) {
-  width: 45%;
+  width: 45%; /* Task */
 }
+
 .planner-table th:nth-child(2),
 .planner-table td:nth-child(2) {
-  width: 20%;
+  width: 20%; /* Category */
 }
+
 .planner-table th:nth-child(3),
 .planner-table td:nth-child(3) {
-  width: 15%;
+  width: 15%; /* Status */
 }
+
 .planner-table th:nth-child(4),
 .planner-table td:nth-child(4) {
-  width: 20%;
+  width: 20%; /* Actions */
 }
 
-/* Header row styling */
+
+/* Header row structure */
 .planner-table th {
-  background: linear-gradient(#e7efff, #cfdfff);
-  color: #003366;
   font-weight: bold;
-  border-bottom: 2px solid #7ea4d6;
+  text-align: left;
+  vertical-align: middle;
+  padding: 6px 10px;
 }
 
-/* Zebra rows */
-.planner-table tr:nth-child(even) {
-  background-color: #f6f8ff;
+/* Row layout consistency */
+.planner-table tr {
+  height: auto;
 }
+
+.planner-table tr:nth-child(even),
 .planner-table tr:hover {
-  background-color: #e8f0ff;
+
 }
 
-/* Action buttons */
+
+/* ==== ACTION BUTTONS (LAYOUT ONLY) ==== */
+
 .action-cell {
   padding: 4px;
 }
@@ -168,6 +162,7 @@ body {
 .action-row {
   display: flex;
   justify-content: stretch;
+  align-items: center;
   gap: 6px;
   width: 100%;
 }
@@ -182,24 +177,23 @@ body {
   font-size: 12px;
   font-weight: bold;
   cursor: pointer;
-  border: none;
   box-sizing: border-box;
   text-align: center;
   width: 100%;
 }
 
-/* ==== FOOTER ==== */
+/* ==== FOOTER (LAYOUT ONLY) ==== */
 .site-footer {
   position: sticky;
   bottom: 0;
   z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 6px 12px;
+  height: 30px;
   font-size: 11px;
   text-align: center;
-  border-top: 3px double #7ea4d6;
-  background: #f0f4ff;
-  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.2);
-  height: 30px;
 }
 
 /* ==== RESPONSIVE ==== */

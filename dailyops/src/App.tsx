@@ -5,7 +5,7 @@ export default function App() {
     <div className="page-shell">
       {/* ===== HEADER ===== */}
       <header className="masthead">
-        <div className="masthead-logo">🧭 DailyOps</div>
+        <div className="masthead-logo">DailyOps</div>
         <div className="masthead-toolbar">
           <button className="toolbar-btn">My Account</button>
           <button className="toolbar-btn settings-btn">Settings</button>
