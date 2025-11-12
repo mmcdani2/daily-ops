@@ -368,3 +368,101 @@ body {
     padding: 60px 20px;
   }
 }
+
+/* ==========================
+   MOBILE MODAL — SLIDE UP SHEET REFINED
+   ========================== */
+@media (max-width: 768px) {
+  .settings-overlay,
+  .edit-overlay,
+  .confirm-overlay {
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .settings-modal,
+  .edit-modal,
+  .confirm-modal {
+    width: 100%;
+    max-width: none;
+    max-height: 90vh;       /* prevents clipping */
+    overflow-y: auto;       /* allows scroll if needed */
+    border-radius: 12px 12px 0 0;
+    margin: 0;
+    padding: 20px;
+    box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.4);
+    animation: slideUp 0.3s ease;
+  }
+
+  .settings-modal::-webkit-scrollbar,
+  .edit-modal::-webkit-scrollbar,
+  .confirm-modal::-webkit-scrollbar {
+    width: 6px;
+  }
+  .settings-modal::-webkit-scrollbar-thumb,
+  .edit-modal::-webkit-scrollbar-thumb,
+  .confirm-modal::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+      opacity: 0.7;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+/* Fix modal stacking above footer on mobile */
+.settings-overlay,
+.edit-overlay,
+.confirm-overlay {
+  z-index: 2000 !important; /* ensures modals always top layer */
+}
+
+.site-footer {
+  z-index: 500 !important; /* keep it lower than modals */
+}
+
+/* ===== Dropdown Layout Only ===== */
+.dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown-selected {
+  padding: 4px 6px;
+  border-radius: 2px;
+  border: 1px solid;
+  cursor: pointer;
+  user-select: none;
+}
+
+.dropdown-menu {
+  position: absolute;
+  bottom: 110%; /* opens upward */
+  left: 0;
+  width: 100%;
+  border-radius: 2px;
+  border: 1px solid;
+  z-index: 3000;
+  animation: fadeUp 0.15s ease-out;
+}
+
+.dropdown-item {
+  padding: 4px 6px;
+  cursor: pointer;
+}
+
+@keyframes fadeUp {
+  from { transform: translateY(8px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+
+

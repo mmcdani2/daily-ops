@@ -1,19 +1,32 @@
+import BaseModal from "./BaseModal";
+
 interface ConfirmModalProps {
-  message: string
-  onConfirm: () => void
-  onCancel: () => void
+  open: boolean;            // <-- add this
+  message: string;
+  onConfirm: () => void;
+  onCancel: () => void;
 }
 
-export default function ConfirmModal({ message, onConfirm, onCancel }: ConfirmModalProps) {
+export default function ConfirmModal({
+  open,
+  message,
+  onConfirm,
+  onCancel,
+}: ConfirmModalProps) {
+  if (!open) return null;
+
+  const handleConfirm = () => {
+    onConfirm();
+    onCancel(); // close modal after confirm
+  };
+
   return (
-    <div className="confirm-overlay">
-      <div className="confirm-modal">
-        <p>{message}</p>
-        <div className="btn-row">
-          <button onClick={onConfirm}>Yes</button>
-          <button onClick={onCancel}>No</button>
-        </div>
+    <BaseModal open={open} onClose={onCancel} variant="confirm">
+      <p>{message}</p>
+      <div className="btn-row">
+        <button onClick={handleConfirm}>Yes</button>
+        <button onClick={onCancel}>No</button>
       </div>
-    </div>
-  )
+    </BaseModal>
+  );
 }

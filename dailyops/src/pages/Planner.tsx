@@ -5,9 +5,7 @@ import EditTaskModal from "../components/EditTaskModal"
 import ConfirmModal from "../components/ConfirmModal"
 import type { Task } from "../types/task"
 import type { Theme } from "../hooks/useSettings"
-
-const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-const categories: Task["category"][] = ["Ops", "Admin", "Field", "Finance"]
+import { DAYS, CATEGORIES } from "../constants/planner";
 
 export default function Planner({
   settings: _settings,
@@ -16,9 +14,8 @@ export default function Planner({
   settings: any
   setTheme: (theme: Theme) => void
 }) {
-  const { tasks, loading, addTask, toggleTask, editTask } = useTasks()
+  const { tasks, loading, addTask, completeTask, editTask } = useTasks();
   const { notes, loading: notesLoading, saveNotes } = useNotes()
-
   const [text, setText] = useState("")
   const [day, setDay] = useState("Sunday")
   const [category, setCategory] = useState<Task["category"]>("Ops")
@@ -26,6 +23,7 @@ export default function Planner({
   const [showTodayOnly, setShowTodayOnly] = useState(false)
   const [editingTask, setEditingTask] = useState<Task | null>(null)
   const [taskToClear, setTaskToClear] = useState<Task | null>(null)
+  const [hideCompleted, setHideCompleted] = useState(false);
 
   if (loading || notesLoading) return <p>Loading...</p>
 
@@ -37,7 +35,7 @@ export default function Planner({
 
   const handleQuickAddToday = () => {
     if (!text.trim()) return
-    const today = days[new Date().getDay()]
+    const today = DAYS[new Date().getDay()]
     addTask(text, today, category)
     setText("")
   }
@@ -57,7 +55,7 @@ export default function Planner({
           placeholder="Task"
         />
         <select value={day} onChange={(e) => setDay(e.target.value)}>
-          {days.map((d) => (
+          {DAYS.map((d) => (
             <option key={d}>{d}</option>
           ))}
         </select>
@@ -65,7 +63,7 @@ export default function Planner({
           value={category}
           onChange={(e) => setCategory(e.target.value as Task["category"])}
         >
-          {categories.map((c) => (
+          {CATEGORIES.map((c) => (
             <option key={c}>{c}</option>
           ))}
         </select>
@@ -81,7 +79,7 @@ export default function Planner({
           onChange={(e) => setFilter(e.target.value as "All" | Task["category"])}
         >
           <option value="All">All</option>
-          {categories.map((c) => (
+          {CATEGORIES.map((c) => (
             <option key={c} value={c}>
               {c}
             </option>
@@ -95,12 +93,21 @@ export default function Planner({
           />{" "}
           Show Today Only
         </label>
+        <label style={{ marginLeft: "1rem" }}>
+          <input
+            type="checkbox"
+            checked={hideCompleted}
+            onChange={() => setHideCompleted(!hideCompleted)}
+          />{" "}
+          Hide Completed
+        </label>
+
       </section>
 
       {/* ======= TASK TABLE ======= */}
       <section className="planner-content">
-        {days
-          .filter((d) => !showTodayOnly || d === days[new Date().getDay()])
+        {DAYS
+          .filter((d) => !showTodayOnly || d === DAYS[new Date().getDay()])
           .map((d) => (
             <div key={d} className="planner-section">
               <h3>{d}</h3>
@@ -115,7 +122,12 @@ export default function Planner({
                 </thead>
                 <tbody>
                   {tasks
-                    .filter((t) => t.day === d && (filter === "All" || t.category === filter))
+                    .filter(
+                      (t) =>
+                        t.day === d &&
+                        (filter === "All" || t.category === filter) &&
+                        (!hideCompleted || !t.done)
+                    )
                     .map((t) => (
                       <tr key={t.id}>
                         <td style={{ textDecoration: t.done ? "line-through" : "none" }}>
@@ -125,10 +137,22 @@ export default function Planner({
                         <td>{t.done ? "Complete" : "Pending"}</td>
                         <td className="action-cell">
                           <div className="action-row">
-                            <button onClick={() => setTaskToClear(t)} className="btn btn-complete">
-                              Complete
+                            <button
+                              onClick={() => {
+                                if (t.done) {
+                                  completeTask(t.id);
+                                } else {
+                                  setTaskToClear(t);
+                                }
+                              }}
+                              className="btn btn-complete"
+                            >
+                              {t.done ? "Undo Complete" : "Complete"}
                             </button>
-                            <button onClick={() => setEditingTask(t)} className="btn btn-edit">
+                            <button
+                              onClick={() => setEditingTask(t)}
+                              className="btn btn-edit"
+                            >
                               Edit
                             </button>
                           </div>
@@ -160,14 +184,20 @@ export default function Planner({
 
       {taskToClear && (
         <ConfirmModal
-          message={`Mark "${taskToClear.text}" as complete and remove it?`}
+          open={!!taskToClear}
+          message={
+            taskToClear ? `Mark "${taskToClear.text}" as complete?` : ""
+          }
           onConfirm={() => {
-            toggleTask(taskToClear.id)
-            setTaskToClear(null)
+            if (!taskToClear) return;
+            completeTask(taskToClear.id);
+            setTaskToClear(null);
           }}
           onCancel={() => setTaskToClear(null)}
         />
+
       )}
+
     </>
   )
 }
