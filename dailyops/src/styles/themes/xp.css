@@ -258,3 +258,23 @@
 .theme-xp .confirm-modal button:hover {
   background: linear-gradient(to bottom, #ffffff, #d4e6fb);
 }
+
+.theme-xp .wheel-container {
+  background: linear-gradient(to bottom, #f5f9ff, #d4e3fa);
+  border: 1px solid #9cb4e0;
+  border-radius: 4px;
+  padding: 4px;
+  box-shadow: inset 0 1px 0 #fff, 0 1px 3px rgba(0,0,0,0.25);
+}
+
+.theme-xp .wheel-option {
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.theme-xp .wheel-option:hover,
+.theme-xp .wheel-option.active {
+  background: #2979ff;
+  color: #fff;
+}

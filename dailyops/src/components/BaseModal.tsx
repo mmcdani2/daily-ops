@@ -1,13 +1,28 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { type ReactNode, useEffect } from "react";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
+import { type ReactNode, useEffect, useId } from "react";
+import { createPortal } from "react-dom";
+
+type ModalVariant = "settings" | "edit" | "confirm";
 
 interface BaseModalProps {
   open: boolean;
   onClose: () => void;
   title?: string;
-  variant?: "settings" | "edit" | "confirm";
+  variant?: ModalVariant;
   children: ReactNode;
 }
+
+const overlayVariants: Variants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
+
+const surfaceVariants: Variants = {
+  initial: { opacity: 0, marginTop: 32 },
+  animate: { opacity: 1, marginTop: 0 },
+  exit: { opacity: 0, marginTop: 24 },
+};
 
 export default function BaseModal({
   open,
@@ -16,44 +31,46 @@ export default function BaseModal({
   variant = "settings",
   children,
 }: BaseModalProps) {
-  const overlayClass = `${variant}-overlay`;
-  const modalClass = `${variant}-modal`;
+  const titleId = useId();
 
-  // ESC key closes modal
   useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+    const handler = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
     };
-    if (open) document.addEventListener("keydown", handleEsc);
-    return () => document.removeEventListener("keydown", handleEsc);
+    if (open) document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
   }, [open, onClose]);
 
   if (!open) return null;
 
-  return (
-    <AnimatePresence>
+  return createPortal(
+    <AnimatePresence mode="wait">
       <motion.div
-        className={overlayClass}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        // prevent overlay click from conflicting with modal clicks
-        onMouseDown={(e) => {
-          // only close if the user clicked directly on overlay, not on children
-          if (e.target === e.currentTarget) onClose();
+        className={`modal-overlay ${variant}-overlay`}
+        variants={overlayVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        onMouseDown={(event) => {
+          if (event.target === event.currentTarget) onClose();
         }}
       >
-        <motion.div
-          className={modalClass}
-          initial={{ scale: 0.95, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.95, opacity: 0 }}
-          transition={{ duration: 0.15, ease: "easeOut" }}
+        <motion.section
+          className={`modal-surface ${variant}-modal`}
+          variants={surfaceVariants}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={title ? titleId : undefined}
         >
-          {title && <h3>{title}</h3>}
-          {children}
-        </motion.div>
+          {title && (
+            <header className="modal-header">
+              <h3 id={titleId}>{title}</h3>
+            </header>
+          )}
+          <div className="modal-content">{children}</div>
+        </motion.section>
       </motion.div>
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }

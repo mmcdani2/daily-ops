@@ -3,7 +3,7 @@
    ========================== */
 
 .theme-dos {
-  background-color: #000000;
+  background-color: #000;
   color: #00ff00;
   font-family: "IBM Plex Mono", "Courier New", monospace;
   font-size: 14px;
@@ -11,15 +11,15 @@
   line-height: 1.4;
 }
 
-/* Global body style */
+/* === Global Body === */
 .theme-dos body {
-  background-color: #000000;
+  background-color: #000;
   color: #00ff00;
   margin: 0;
   padding: 0;
 }
 
-/* Page layout shell */
+/* === Layout Shell === */
 .theme-dos .page-shell {
   display: flex;
   flex-direction: column;
@@ -28,10 +28,10 @@
   background: #000;
 }
 
-/* Header and footer bars */
+/* === Header & Footer === */
 .theme-dos .masthead,
 .theme-dos .site-footer {
-  background: #000000;
+  background: #000;
   color: #00ff00;
   font-weight: bold;
   border-top: 1px solid #00ff00;
@@ -40,24 +40,24 @@
   text-transform: uppercase;
 }
 
-/* Rails */
+/* === Side Rails === */
 .theme-dos .left-rail,
 .theme-dos .right-rail {
-  background: #000000;
+  background: #000;
   border: 1px solid #00ff00;
   padding: 8px;
 }
 
-/* Main column */
+/* === Main Column === */
 .theme-dos .main-column {
-  background: #000000;
+  background: #000;
   color: #00ff00;
   border-left: 1px solid #00ff00;
   border-right: 1px solid #00ff00;
   padding: 10px;
 }
 
-/* Table structure */
+/* === Table === */
 .theme-dos .planner-table {
   border-collapse: collapse;
   width: 100%;
@@ -76,9 +76,9 @@
   text-transform: uppercase;
 }
 
-/* Buttons */
+/* === Buttons === */
 .theme-dos button {
-  background: #000000;
+  background: #000;
   color: #00ff00;
   border: 1px solid #00ff00;
   font-family: "IBM Plex Mono", monospace;
@@ -90,14 +90,14 @@
 
 .theme-dos button:hover {
   background: #00ff00;
-  color: #000000;
+  color: #000;
 }
 
-/* Inputs and selects */
+/* === Inputs / Selects / Textareas === */
 .theme-dos input,
 .theme-dos select,
 .theme-dos textarea {
-  background: #000000;
+  background: #000;
   color: #00ff00;
   border: 1px solid #00ff00;
   font-family: "IBM Plex Mono", monospace;
@@ -111,7 +111,7 @@
   background: #001800;
 }
 
-/* Headings */
+/* === Headings === */
 .theme-dos h1,
 .theme-dos h2,
 .theme-dos h3 {
@@ -122,7 +122,7 @@
   padding-bottom: 2px;
 }
 
-/* Filters and controls layout */
+/* === Filters & Controls === */
 .theme-dos .planner-controls,
 .theme-dos .planner-filters {
   display: flex;
@@ -132,12 +132,12 @@
   margin-bottom: 8px;
 }
 
-/* Checkbox look */
+/* === Checkbox === */
 .theme-dos input[type="checkbox"] {
   accent-color: #00ff00;
 }
 
-/* Scrollbars (modern browsers) */
+/* === Scrollbar === */
 .theme-dos ::-webkit-scrollbar {
   width: 8px;
 }
@@ -145,40 +145,26 @@
   background: #00ff00;
 }
 .theme-dos ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #000;
 }
 
 /* ==========================
-   SETTINGS MODAL — DOS 2.0 STYLE
+   MODALS (Unified Visual Layer)
    ========================== */
 
-/* Backdrop overlay */
-.theme-dos .settings-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
+.theme-dos .modal-overlay {
+  background: rgba(0, 0, 0, 0.9);
 }
 
-/* Modal box */
-.theme-dos .settings-modal {
-  background: #000000;
-  color: #00ff00;
+.theme-dos .modal-surface {
+  background: #000;
   border: 1px solid #00ff00;
-  padding: 16px 20px;
-  width: 320px;
-  font-family: "IBM Plex Mono", monospace;
+  color: #00ff00;
   box-shadow: 0 0 8px #00ff00;
+  font-family: "IBM Plex Mono", monospace;
 }
 
-/* Title */
-.theme-dos .settings-modal h3 {
+.theme-dos .modal-header h3 {
   color: #00ff00;
   text-transform: uppercase;
   border-bottom: 1px solid #00ff00;
@@ -187,128 +173,45 @@
   font-size: 16px;
 }
 
-/* Labels and selects */
-.theme-dos .settings-modal label {
-  display: block;
-  margin-bottom: 6px;
-}
-
-.theme-dos .settings-modal select {
-  width: 100%;
-  background: #000000;
+/* === Inputs / Buttons Inside Modal === */
+.theme-dos .modal-content select,
+.theme-dos .modal-content input,
+.theme-dos .modal-content textarea {
+  background: #000;
   color: #00ff00;
   border: 1px solid #00ff00;
-  padding: 4px;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 14px;
-  appearance: none;
+  padding: 4px;
 }
 
-/* Close button */
-.theme-dos .settings-modal button {
-  width: 100%;
-  background: #000000;
+.theme-dos .modal-content button {
+  background: #000;
   color: #00ff00;
   border: 1px solid #00ff00;
-  padding: 4px;
-  font-family: "IBM Plex Mono", monospace;
   text-transform: uppercase;
   cursor: pointer;
-  margin-top: 12px;
-}
-
-.theme-dos .settings-modal button:hover {
-  background: #00ff00;
-  color: #000000;
-}
-
-/* ==========================
-   EDIT TASK MODAL — DOS STYLE
-   ========================== */
-
-.theme-dos .edit-overlay {
-  background: rgba(0, 0, 0, 0.9);
-}
-
-.theme-dos .edit-modal {
-  background: #000000;
-  border: 1px solid #00ff00;
-  color: #00ff00;
-  font-family: "IBM Plex Mono", monospace;
-  box-shadow: 0 0 10px #00ff00;
-}
-
-.theme-dos .edit-modal h3 {
-  border-bottom: 1px solid #00ff00;
-  padding-bottom: 4px;
-  text-transform: uppercase;
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-.theme-dos .edit-modal input {
-  background: #000000;
-  border: 1px solid #00ff00;
-  color: #00ff00;
-  font-family: "IBM Plex Mono", monospace;
-  padding: 5px;
-}
-
-.theme-dos .edit-modal input:focus {
-  outline: none;
-  box-shadow: 0 0 4px #00ff00;
-}
-
-.theme-dos .edit-modal button {
-  background: #000000;
-  color: #00ff00;
-  border: 1px solid #00ff00;
-  font-family: "IBM Plex Mono", monospace;
-  cursor: pointer;
-  text-transform: uppercase;
   padding: 4px;
-  flex: 1;
+  margin-top: 8px;
 }
 
-.theme-dos .edit-modal button:hover {
+.theme-dos .modal-content button:hover {
   background: #00ff00;
-  color: #000000;
+  color: #000;
 }
 
-/* ==========================
-   CONFIRM MODAL — DOS THEME
-   ========================== */
-
-.theme-dos .confirm-overlay {
-  background: rgba(0, 0, 0, 0.9);
-}
-
-.theme-dos .confirm-modal {
-  background: #000000;
+/* === Wheel Selector (Mobile Style) === */
+.theme-dos .wheel-container {
+  background: #000;
   border: 1px solid #00ff00;
-  color: #00ff00;
-  font-family: "IBM Plex Mono", monospace;
-  box-shadow: 0 0 10px #00ff00;
-}
-
-.theme-dos .confirm-modal p {
-  font-size: 14px;
-  margin-bottom: 12px;
-  text-align: left;
-}
-
-.theme-dos .confirm-modal button {
-  background: #000000;
-  color: #00ff00;
-  border: 1px solid #00ff00;
-  font-family: "IBM Plex Mono", monospace;
-  text-transform: uppercase;
   padding: 4px;
-  flex: 1;
-  cursor: pointer;
 }
 
-.theme-dos .confirm-modal button:hover {
+.theme-dos .wheel-option {
+  color: #00ff00;
+  font-family: "Courier New", monospace;
+}
+
+.theme-dos .wheel-option.active {
   background: #00ff00;
-  color: #000000;
+  color: #000;
 }
